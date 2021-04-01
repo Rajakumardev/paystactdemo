@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const { default: axios } = require('axios');
 const transactionLog = require('./log/transactionlog');
-
+const PORT = process.env.PORT || 8000;
 //middlewares
 app.use(express.json());
 app.use(cors());
@@ -53,7 +53,7 @@ app.get('/transactionlog', (req, res) => {
 });
 
 //server start
-app.listen(8000, (err) => {
+app.listen(PORT, (err) => {
     if (err) throw err;
     console.log('server started');
 });
